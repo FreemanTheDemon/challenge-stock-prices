@@ -27,3 +27,23 @@ console.log(best([0, 100]));
 console.log(best([5, 4 , 3, 2, 1]));
 console.log(best([100]));
 console.log(best([100, 0]));
+
+// one for loop solution
+
+let best2 = (arr) => {
+    let maxDiff = 0;
+    let lowSoFar;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (lowSoFar === undefined || prices[i] < lowSoFar) {
+            lowSoFar = prices[i];
+        }
+
+        let diff = prices[i] - lowSoFar;
+
+        if (diff > maxDiff) {
+            maxDiff = diff;
+        }
+    }
+    return maxDiff;
+}
